@@ -128,6 +128,7 @@
             this.Controls.Add(this.year);
             this.Name = "ENROLLSTUDENT";
             this.Text = "ENROLLSTUDENT";
+            this.Load += new System.EventHandler(this.ENROLLSTUDENT_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -363,6 +363,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ENROLLSTUDENT2";
             this.Text = "ENROLLSTUDENT";
+            this.Load += new System.EventHandler(this.ENROLLSTUDENT2_Load);
             this.Gender.ResumeLayout(false);
             this.Gender.PerformLayout();
             this.ResumeLayout(false);

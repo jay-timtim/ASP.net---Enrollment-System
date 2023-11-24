@@ -47,5 +47,10 @@ namespace ASP.net___Enrollment_System
                 MessageBox.Show("Incorrect Password");
             }
         }
+
+        private void CHANGEPASS_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

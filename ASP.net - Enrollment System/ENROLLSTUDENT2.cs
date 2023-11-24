@@ -21,7 +21,7 @@ namespace ASP.net___Enrollment_System
         DataClasses1DataContext db = new DataClasses1DataContext();
         private void enrollbutton_Click(object sender, EventArgs e)
         {
-            //create a validator for the textboxes Fname,Lname,Mname,Sname,LRN,Address,Pnum,Email
+            
             if (Fname.Text == "")
             {
                 MessageBox.Show("Please enter your First Name");
@@ -72,7 +72,7 @@ namespace ASP.net___Enrollment_System
                 {
                     MessageBox.Show("Please Select a Gender");
                 }
-            //validator for valid bday
+            
             else if (Bday.Value.Date >= DateTime.Now.Date)
             {
                 MessageBox.Show("Please enter a valid Birthday");
@@ -135,7 +135,7 @@ namespace ASP.net___Enrollment_System
             
             this.Hide();
         }
-        //validator for phone number only number is allowed
+       
         private void Pnum_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
@@ -144,7 +144,7 @@ namespace ASP.net___Enrollment_System
                 e.Handled = true;
             }
         }
-        //validator for LRN only number is allowed
+        
         private void LRN_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
@@ -173,6 +173,11 @@ namespace ASP.net___Enrollment_System
                 MessageBox.Show("Please enter a valid Phone Number");
                 Pnum.Text = Pnum.Text.Remove(Pnum.Text.Length - 1);
             }
+        }
+
+        private void ENROLLSTUDENT2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

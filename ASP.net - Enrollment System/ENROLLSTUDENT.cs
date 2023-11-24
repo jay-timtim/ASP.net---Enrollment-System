@@ -33,5 +33,10 @@ namespace ASP.net___Enrollment_System
             
             this.Hide();
         }
+
+        private void ENROLLSTUDENT_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

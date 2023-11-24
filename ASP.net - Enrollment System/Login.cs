@@ -25,7 +25,7 @@ namespace ASP.net___Enrollment_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //put validator that if login success it will go to home
+         
             string user = username.Text;
             string pass = password.Text;
             var login = db.pro_login(user, pass);
