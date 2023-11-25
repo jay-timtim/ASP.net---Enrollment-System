@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="login_db" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PC\SQLEXPRESS;Initial Catalog=login_db;Integrated Security=True" SettingsObjectName="ASP.net___Enrollment_System.Properties.Settings" SettingsPropertyName="login_dbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.login_info" Member="login_infos">
+    <Type Name="login_info">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Lname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="passwords" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usertype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stud_info" Member="Stud_infos">
+    <Type Name="Stud_info">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Stud_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Stud_Fname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stud_Lname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stud_Mname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stud_Sname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stud_Gender" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stud_Bday" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Stud_LRN" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Stud_Address" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stud_Pnumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Stud_Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stud_Course" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stud_Year" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Stud_Section" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Section_info" Member="Section_infos">
+    <Type Name="Section_info">
+      <Column Name="COURSE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YR_LEVEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SECTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CAPACITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MAX_CAPACITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.pro_login" Method="pro_login">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="pro_loginResult">
+      <Column Name="username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="passwords" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usertype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.check_section" Method="check_section">
+    <Parameter Name="course" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="year" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="check_sectionResult">
+      <Column Name="SECTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.add_capacity" Method="add_capacity">
+    <Parameter Name="course" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="year" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.checksectionname" Method="checksectionname">
+    <Parameter Name="course" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="year" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="section" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="checksectionnameResult">
+      <Column Name="section" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.addnewsection" Method="addnewsection">
+    <Parameter Name="course" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="year" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="section" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="maxcapacity" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.enroll_student" Method="enroll_student">
+    <Parameter Name="Fname" Parameter="fname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Lname" Parameter="lname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Mname" Parameter="mname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Sname" Parameter="sname" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Bday" Parameter="bday" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="LRN" Parameter="lRN" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pnum" Parameter="pnum" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Course" Parameter="course" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Year" Parameter="year" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.studentlist" Method="studentlist">
+    <ElementType Name="studentlistResult">
+      <Column Name="[ID Number]" Member="ID_Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Student Name]" Member="Student_Name" Type="System.String" DbType="VarChar(154)" CanBeNull="true" />
+      <Column Name="[Student Course]" Member="Student_Course" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[Student Year]" Member="Student_Year" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[Student Section]" Member="Student_Section" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.searchstudent" Method="searchstudent">
+    <Parameter Name="temp" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="searchstudentResult">
+      <Column Name="[ID Number]" Member="ID_Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Student Name]" Member="Student_Name" Type="System.String" DbType="VarChar(154)" CanBeNull="true" />
+      <Column Name="[Student Course]" Member="Student_Course" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[Student Year]" Member="Student_Year" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[Student Section]" Member="Student_Section" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sectionlist" Method="sectionlist">
+    <ElementType Name="sectionlistResult">
+      <Column Name="COURSE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[YEAR LEVEL]" Member="YEAR_LEVEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SECTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[STUDENT COUNT]" Member="STUDENT_COUNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sectionsearch" Method="sectionsearch">
+    <Parameter Name="course" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="year" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sectionsearchResult">
+      <Column Name="COURSE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[YEAR LEVEL]" Member="YEAR_LEVEL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SECTION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[STUDENT COUNT]" Member="STUDENT_COUNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.changepass" Method="changepass">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.loginuser" Method="loginuser">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="loginuserResult">
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.checkusertype" Method="checkusertype">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="checkusertypeResult">
+      <Column Name="usertype" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
